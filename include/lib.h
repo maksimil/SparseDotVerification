@@ -79,8 +79,6 @@ typedef struct SparseVector SparseVector;
 
   assigns \nothing;
 
-  ensures \result == SparseVectorDenseSize(v);
-
   behavior Some:
     assumes v->size > 0;
     ensures \forall Index i; 0 <= i < v->size ==> v->indices[i] <= \result;
@@ -94,14 +92,5 @@ typedef struct SparseVector SparseVector;
   disjoint behaviors;
 */
 Index SparseVectorDenseSize(const SparseVector *v);
-
-/*@
-  requires \valid(v) && \valid(dense) &&
-    SparseVectorInvariant(v) && DenseVectorInvariant(dense);
-  requires dense->size > SparseVectorDenseSize(v);
-
-  assigns \nothing;
-*/
-void SparseVectorToDense(const SparseVector *v, DenseVector *dense);
 
 #endif
