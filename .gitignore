@@ -4,4 +4,4 @@ obj
 .cache
 compile_commands*
 
-.frama-c
+.frama-c/wp/cache
